@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caractéristique des villages 
+
+  </title>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-compass/dist/leaflet-compass.min.js"></script>
+  <style>
+    #map {
+      height: 1000px;
+      
+    }
+    .legend {
+      background-color: white;
+      padding: 10px;
+      font-size: 12px;
+      line-height: 18px;
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    .legend-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+    .label {
+ 
+  padding: 2px 5px;
+  font-weight: bold;
+  color: rgb(182, 8, 8);
+}
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([13.5127, 2.1128], 6); // Coordonnées des villages
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Caractéristique des villages '
+    }).addTo(map);
+
+    // Village
+    var village = [
+      {
+        name: "Rini",
+        lat: 14.0741944,
+        lng: 5.839277777777777,
+        
+    info: "Nappe plus de 21 m, système d'exhaure contre puits forage, les producteurs accès au village par une latérite, il existe une aire de rechargement pour le regroupement de l'oignon acheté, l'exode est assez pratiqué dans le village, "
+  
+        
+      },
+      {
+        name: "Bagaye",
+        lat: 14.8294833,
+        lng: 5.5436499999999995,
+        info: "Nappe de 12-14 m, système d'exhaure forage, accès au village par une piste latéritique, il existe une aire de rechargement pour le regroupement de l'oignon acheté, l'exode est assez développé dans le village, des gens du village installés en Côte d'Ivoire sont des principaux acheteurs de l'oignon de la zone, les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies, les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient des débutant dans le maraichage"
+      
+      },
+
+      {
+        name: "Guidan Fako",
+        lat: 14.73965,
+        lng: 5.737533333333333,
+        info: "Nappe de 19-21, système d'exhaure contre puit+ forage, accès au village par une route goudronnée, il existe une de rechargement pour le regroupement de l'oignon acheté, l'exode est assez développé dans le village, la plupart des jeunes suivent leurs   parents  installés dans les pays comme le Cameroun, la centre Afrique, le Gabo, la  cote d'Ivoire  les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient des débutant dans le maraichage"
+      },
+
+      {
+        name: "Sabon Gari ",
+        lat: 14.3333333,
+        lng: 6.183333333333334,
+        info: "Nappe de 12-14 m, système d'exhaure forage, il n'existe pas une aire de rechargement pour le regroupement de l'oignon acheté, l’intermédiaire du village doit se déplacer dans un village ou existe une aire de collecte pour la recherche des acheteurs, l'exode est assez développé dans le village, les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies, les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient dans le maraichage"
+      },
+
+      {
+        name: "Kollé",
+        lat:14.0666667,
+        lng: 6,
+        info:"Ancien  bassin de production du coton, la nappe est  moins  de 12 m, système d'exhaure forage et  motopompe à essence,  il existe   une aire de rechargement pour le regroupement de l'oignon acheté, l'exode est peu pratiqué par les jeunes du village , les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies, les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient  dans le maraichage, même  lorsqu’ils étaient dans la grande de la famille, les jeunes avaient leurs lopins de terre pour la production d'oignon"
+      },
+      {
+        name: "Koundigué",
+        lat:13.9666667,
+        lng: 5.916666666666667,
+        info:"existence du potentiel (eau terre pour irrigation) la nappe est  à moins  de 12 m, système d'exhaure forage+ motopompe à essence,  il existe   une aire de rechargement pour le regroupement de l'oignon acheté, accès au village par une piste latéritique  l'exode est peu pratiqué par les jeunes du village , les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies, les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient  dans le maraichage, même  lorsqu’ils étaient dans la grande de la famille, les jeunes avaient leurs lopins de terre pour la production d'oignon"
+      },
+      {
+        name: "Tahoua ville",
+        lat:14.2333333,
+        lng: 5.205,
+        info:"Production péri-urbaine, les jeunes formés étaient dans la production avant la formation et le financement, cultures diversifiés (oignon, Moringa, autres légumes), l'essentiel de la production est acheté par les revendeurs de la ville ; la nappe est 12 m mais dépend fortement des écoulements des Koris qui assure la recharge de la vallée"
+      },
+
+      {
+        name: "Sabra",
+        lat:14.25545,
+        lng: 5.457633333333333,
+        info:"Nappe moins de 12 m, dépend fortement des écoulements de la vallée en saison des pluies, les jeunes qui ont participé à la formation étaient dans la production, village relié à une piste latéritique, principales productions, oignon semence, oignon bulbes et chou, "
+      },
+      {
+        name: "Kadebadé",
+        lat:13.9833333,
+        lng: 5.35,
+        info:"Peu d'opportunité de production maraichère, pour ce village la production maraichère se pratique plus au moins sur les sols dunaires, pas de vallée mais la nappe à 12 m, le village se trouve à 5 km du goudron n'as pas de piste latéritique, l'aire de collecte se trouve dans un autre village voisin situé sur une route principale goudronné Plus de 50% des jeunes partent en exode ceux qui restent pratiquent le maraîchage pendant la campagne sèche froid "
+      },
+
+      {
+        name: "Kirari",
+        lat:14.7488889,
+        lng: 5.804166666666666,
+        info:"Nappe  de 19-21, système d'exhaure contre puit+ forage, accès aux village par une route goudronnée, il existe une aire de rechargement pour le regroupement de l'oignon acheté, l'exode est assez développé dans le village, la plupart des jeunes suivent leurs   gens du villages installés dans les pays comme le Cameroun, la centre Afrique, le Gabo, la  cote d'Ivoire, les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient depuis des années dans  le maraichage "
+        
+      },
+
+      {
+        name: "Ousla",
+        lat:14.7333333,
+        lng: 5.816666666666666,
+        info:"Nappe  de 19-21, système d'exhaure contre puit+ forage, accès aux village par une route goudronnée, il existe une aire de rechargement pour le regroupement de l'oignon acheté, l'exode est assez développé dans le village, la plupart des jeunes suivent leurs   gens du villages installés dans les pays comme le Cameroun, la centre Afrique, le Gabo, la  cote d'Ivoire, les jeunes 1-2 ans après leur premier mariage acquièrent leurs autonomies les jeunes qui ont bénéficié de la formation et l'appui à l'installation étaient depuis des années dans  le maraichage "
+      },
+    ];
+
+    
+    // Créez une légende personnalisée
+    var legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'legend');
+
+      
+      div.innerHTML = '<div><img src="jaune.png" style="width: 20px; height: 20px; vertical-align: middle;"> Villages </div>';
+
+      return div;
+    };
+
+    legend.addTo(map);
+
+    var redMarkerIcon = L.icon({
+      iconUrl: 'jaune.png', 
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [0, -41]
+    });
+
+    village.forEach(function (unit) {
+      L.marker([unit.lat, unit.lng], { icon: redMarkerIcon }).addTo(map)
+        .bindPopup(`<b>${unit.name}</b><br><br>${unit.info}`)
+        .openPopup();
+        var label = L.divIcon({
+    className: 'label',
+    html: unit.name
+  });
+
+  L.marker([unit.lat, unit.lng], { icon: label }).addTo(map); 
+  
+    });
+ 
+
+// Ajouter la boussole
+L.control.compass().addTo(map);
+
+
+    Legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'legend');
+
+      div.innerHTML += '<div class="legend-item"><span class="legend-icon" style="background-color: red;"></span>Unité de transformation laitière</div>';
+
+      return div;
+    };
+
+    legend.addTo(map);
+  </script>
+</body>
+</html>
